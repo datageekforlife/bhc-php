@@ -5,7 +5,9 @@
     
         <meta charset="utf-8">
         <title>Title</title>
-        <link href="css/style.css" rel="stylesheet">
+        <nav>
+				<a href="index.php">Home</a>
+			</nav>
 </head>
 <body>
 
