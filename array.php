@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
 
-<head>
-    
-        <meta charset="utf-8">
-        <title>Title</title>
-        <nav>
-				<a href="index.php">Home</a>
-			</nav>
-</head>
-<body>
+  <head>
+    <meta charset="utf-8">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../css/style.css">
+    <title>Form Processing</title>
+  </head> 
+  <body>
+		
+    <header>
+      <h1>Title</h1>
+    </header>
+ 
+
 
 <?php
 $pageContent = null;
@@ -18,7 +23,7 @@ $pageContent = null;
 $albums = array("Radio" => "1", "Whitney Houston" => "2", "Heart" => "3", "King of Rock" => "4", "TGIF" => "5");
 $albums["Abbey Road"] = "10";
 foreach ($albums as $title => $rating) {
-	$pageContent .= "$title is $rating<br>";
+	$pageContent .= "$title is $rating";
 }
 
 
@@ -34,11 +39,11 @@ $artists = array(
  
 $tommyRelease = $artists["The Who"]["Tommy"];
 
- $pageContent .= "<h1> Tommy was Release in $tommyRelease<h1>";
+ $pageContent .= "<h2> Tommy was Release in $tommyRelease</h2>";
 
 /* Nested foreach loops */
 foreach ($artists as $artist => $albums) { // steps through $artiist and selects $artists as sub-array value
-    $pageContent .= "<h1> " . $artist . "</h1>\n";
+    $pageContent .= "<h2> " . $artist . "</h2>\n";
     $pageContent .= "<ul>\n";
     foreach ($albums as $album => $date) { // uses the value of the sub-arrays above as the array name for the nested loop
         $pageContent .= "<li>$album, $date</li>\n";
@@ -48,7 +53,7 @@ foreach ($artists as $artist => $albums) { // steps through $artiist and selects
 
 
 /* Select greater than 1969 foreach loops */
-$pageContent .= "<h1>Albums Produce after 1970</h1>\n";
+$pageContent .= "<h2>Albums Produce after 1970</h2>\n";
 $pageContent .= "<ul>\n";
 foreach ($artists as $artist => $albums) { // steps through $artiist and selects $artists as sub-array value
   foreach ($albums as $album => $date) { // uses the value of the sub-arrays above as the array name for the nested loop
@@ -62,6 +67,12 @@ $pageContent .= "</ul>\n";
 echo $pageContent;
 ?>
 
+
+  
+          <footer>
+      <p>Footer content goes here</p>
+    </footer>
+  
 </body>
 
 </html>
