@@ -21,11 +21,12 @@ $pageContent = "";
 
 // associative array
 $albums = array("Radio" => 1, "Whitney Houston" => 2, "Heart" => 3, "King of Rock" => 4, "TGIF" => 5);
-$albums = array("Abbey Road" => 10);
+$albums["Abbey Road"] = 10;
 ksort($albums);
 
 foreach ($albums as $key => $value) {
     echo $key . " - " . $value . "\n";
+    echo $value . "<br/>";
 
 }
 
