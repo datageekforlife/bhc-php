@@ -1,3 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Form Validation</title>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+		
+    <script src="scripts/javascript.js"></script> 
+
+  </head>
+  <body>
+	<header class="container">
+		<h1>Form Validation <a href="login.php" class="float-right">Welcome, Guest</a></h1>
+	</header>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="index.php">Home</a>
+				</li>
+				
+
+			</ul>
+			<form action="form-validation.php" method="post">
+				<button class="btn btn-success" type="submit">Login</button>
+			</form>
+		</div>
+	</nav>
+<div class="container">
+<fieldset>
+<legend> Sample Form </legend>
+<form action="form-validation.php" method="post">
+
+
+
+
 <?php
 
 $name = $email = $activity = $instrument = "";
@@ -42,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $animals = $_POST["animals"];
    
-    if (count($animals) > 2) {
+    if (count($animals) >2) {
       $animalErr = "You can only select up to 2 favorite animals";
     }
   }
@@ -79,7 +125,7 @@ function test_input($data) {
 ?>
 
 
-<h2>PHP Form Validation Example</h2>
+
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
   Name: <input type="text" name="name" value="<?php echo $name;?>">
   <span class="error">* <?php echo $nameErr;?></span>
@@ -152,3 +198,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($name) && !empty($email) && !
   echo "Favorite musical instrument: $instrument<br>";
 }
 ?>
+
