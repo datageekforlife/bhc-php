@@ -36,15 +36,11 @@
 			</form>
 		</div>
 	</nav>
-<div class="container">
-<fieldset>
-<legend> Sample Form </legend>
-<form action="form-validation.php" method="post">
-
-
 
 
 <?php
+
+
 
 $name = $email = $activity = $instrument = "";
 $nameErr = $emailErr = $activityErr = $instrumentErr = "";
@@ -198,4 +194,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($name) && !empty($email) && !
   echo "Favorite musical instrument: $instrument<br>";
 }
 ?>
+
+<footer class="text-center">
+		<p>&copy; Stacy Moore PHP Class 2024</p>
+	</footer>
+   
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
 
