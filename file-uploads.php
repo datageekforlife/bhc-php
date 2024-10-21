@@ -22,7 +22,16 @@ if (isset($_POST['submit'])) {
 	} else {
 			$lastname = ucfirst(htmlspecialchars(trim($_POST['lastname'])));	
 	}	
-	
+	$password = trim($_POST['password']);
+	if (empty($password)) {
+		$invalid_password = '<span class="error">Required Field </span>';
+		$valid = false;
+	}
+	$password2 = trim($_POST['password2']);
+	if (strcmp($password, $password2)) {
+		$mismatch_password = '<span class="error">Passwords Do Not Match </span>';
+		$valid = false;
+	} 
 	if (empty($_POST['email'])) {	
 		$invalid_email = '<span class="error">Required </span>';
 		$valid = false;
@@ -66,6 +75,38 @@ if ((($filetype == "gif") or ($filetype == "jpg") or ($filetype == "png")) and $
 	$pageContent .=  "Invalid file";
 	}
 }
+
+/* Append a txt File Example */
+// specify the name of the txt file
+$filename = "membership.txt";
+
+// format the form data to be saved to the txt file
+$data_entry = $firstname . "," . $lastname . "," . $email . "," . $username . "\n";
+
+// open the txt file ($filename) to append (a) and assign it to a file handle ($fp)
+$fp = fopen($filename, "a") or die ("Couldn't open file, sorry.");
+// write (fwrite) the data ($data_entry) to the file using the file handle ($fp)
+if (fwrite($fp, $data_entry) > 0) { // successful write operation returns 1, failure returns 0
+	// do this on success
+	$logged_in = TRUE; // sets a login trigger for the program to switch from form display to content display
+} else {
+	// do this on failure
+	echo "Your information was not saved. Please try again at another time.";
+}
+$fp = fclose($fp); // close the file
+		
+
+
+$poem = "poem.txt";
+$fp = fopen($poem, "r") or die ("Couldn't open file, sorry.");
+
+	if (!feof($fp)) { 
+$poemText = fgets($fp); 
+	} else {
+	$pageContent .= "Your information was not found. Please try again at another time.<br>";
+}
+$fp = fclose($fp); 
+
 $pageContent .= <<<HERE
 
 <section class="container">
