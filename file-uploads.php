@@ -14,8 +14,14 @@ if (isset($_POST['submit'])) {
 		$valid = false;
 	} else {
 		$firstname = ucfirst(htmlspecialchars(trim($_POST['firsttname'])));		
-
-
+	}
+		
+	if (empty($_POST['lastname'])){
+			$invalid_lastname = '<span class="text-danger">Required </span>';
+			$valid = false;
+	} else {
+			$lastname = ucfirst(htmlspecialchars(trim($_POST['lastname'])));	
+	}	
 	
 	if (empty($_POST['email'])) {	
 		$invalid_email = '<span class="error">Required </span>';
