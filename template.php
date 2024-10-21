@@ -18,10 +18,16 @@
       <a href="index.php">Home</a> | <a href="invoice.php">Invoice</a> | <a href="form.php">Music Order Form</a> | <a href="calendar.php">Calendar</a> | 
       
     </nav>
-    
-		<?php print $pageContent; ?>
+    <main class="container">
+      
+    <?= $pageContent; ?>
 
-    <footer>Stacy Moore BHC PHP Fall 2023</footer>
+    </main>
+
+
+    
+
+    <footer>Stacy Moore BHC PHP Fall 2024</footer>
   </body>
 
 </html>
