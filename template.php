@@ -15,7 +15,7 @@
     </header>
     <nav>
       
-      <a href="index.php">Home</a> | <a href="invoice.php">Invoice</a> | <a href="form.php">Music Order Form</a> | <a href="calendar.php">Calendar</a> | 
+      <a href="index.php">Home</a> | <a href="invoice.php">Invoice</a> | <a href="form.php">Music Order Form</a> | <a href="calendar.php">Calendar</a> | <a href="register.php">Register</a> |
       
     </nav>
     <main class="container">
