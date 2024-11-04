@@ -23,7 +23,7 @@ if(isset($_POST['submit'])) {
 		echo "Failed to connect to MySQL: ".mysqli_connect_error($conn);
 	}
 
-
+	if(!strcmp($password, $password2))
 
 
 				
