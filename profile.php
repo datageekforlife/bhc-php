@@ -1,5 +1,5 @@
 <?php
-include_once 'config.php';
+include 'config.php';
 if (!$conn) {
 	echo "Failed to connect to MySQL: ".mysqli_connect_error();
 }
@@ -7,7 +7,8 @@ if(isset($_POST['memberID'])) {
 	$memberID = $_POST['memberID'];
 } elseif(isset($_GET['memberID'])) {
 	$memberID = $_GET['memberID'];
-	
+} elseif(isset($_SESSION['memberID'])){
+	$memberID = $_SESSION['memberID'];
 } else {
 	header("Location: register.php");
 	exit();
@@ -176,7 +177,7 @@ if(isset($_POST['update'])) {
 $pageContent .= <<<HERE
 	<section class="container">
 	$msg
-		<figure><img src="upload/$image" alt="Profile image" class="profilePic" />
+		<figure><img src="uploads/$image" alt="Profile image" class="profilePic" />
 		<figcaption>Member: $firstname, $lastname</figcaption>
 		</figure>
 		<p>Thank You, $firstname, $lastname.</p>
@@ -239,6 +240,6 @@ $pageContent .= <<<HERE
 	</section>\n
 	HERE;
 	}
-	
+	$pageTitle = "File Uploads";
 	include 'template.php';
 	?>
