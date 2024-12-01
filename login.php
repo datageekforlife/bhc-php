@@ -60,7 +60,14 @@ HERE;
 
 					$_SESSION['memberID'] = $memberID;
 
-					setcookie("firstname", $firstname, time()+(3600*3));
+					setcookie("firstname", $firstname, time()+(3600*3), '/');
+					if(isset($_COOKIE['firstname'])){
+						$firstname = $_COOKIE['firstname'];
+					} else {
+						$firstname = 'Guest';
+					}
+					echo "<p>Welcome back, $firstname.</p>";
+					
 
 					header("Location: profile.php?msg=You are logged in.");
 					exit();
