@@ -5,6 +5,11 @@ if(isset($_SESSION['memberID'])){
   $loginbutton = '<a href="login.php">Login</a>';
 }
 
+if(isset($_COOKIE['firstname'])){
+  $firstname = $_COOKIE['firstname'];
+} else {
+  $firstname = 'Guest';
+}
 
 ?>
 
@@ -21,6 +26,7 @@ if(isset($_SESSION['memberID'])){
   <body>
     <header>
       <h1>Register</h1>
+      <p>Welcome back, <?= $firstname; ?></p>
     </header>
     <nav>
       
