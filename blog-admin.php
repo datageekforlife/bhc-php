@@ -116,7 +116,7 @@ if ($edit) {
       $invalid_title
 		  </div>
 		  <div class="form-group">
-			<label for="content">Last Name</label>
+			<label for="content">Content</label>
 			<textarea name="content" id="content" class="form-control">$content</textarea>
        $invalid_content
 		  </div>
