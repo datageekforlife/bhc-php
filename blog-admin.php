@@ -56,7 +56,7 @@ HERE;
 
   if(filter_has_var(INPUT_POST, 'delete')){
     $stmt = $conn->stmt_init();
-    if($stmt->prepare("DELETE FROM 'blog' WHERE 'postID' = ?")) {
+    if($stmt->prepare("DELETE FROM `blog` WHERE `postID` = ?")) {
       $stmt->bind_param("i", $postID);
       $stmt->execute();
       $stmt->close();
@@ -80,7 +80,7 @@ $content = mysqli_real_escape_string($conn, trim(filter_input(INPUT_POST, 'conte
 if($valid) {
   if(filter_has_var(INPUT_POST, 'insert')){
     $stmt = $conn->stmt_init();
-    if($stmt->prepare("INSERT INTO 'blog' ('title','content','authorID') VALUES (?, ?, ?)")) {
+    if($stmt->prepare("INSERT INTO `blog` (`postTitle`, `postContent`,`authorID`) VALUES (?, ?, ?)")) {
       $stmt->bind_param("ssi", $title, $content, $memberID);
       $stmt->execute();
       $stmt->close();
@@ -92,7 +92,7 @@ if($valid) {
   }
   if(filter_has_var(INPUT_POST, 'update')){
     $stmt = $conn->stmt_init();
-    if($stmt->prepare("UPDATE 'blog' SET 'title'= ?,'content'= ? WHERE 'postID'= ?")){
+    if($stmt->prepare("UPDATE `blog` SET `postTitle`= ?,`postContent`= ? WHERE `postID`= ?")){
       $stmt->bind_param("ssi", $title, $content, $postID);
       $stmt->execute();
       $stmt->close();
