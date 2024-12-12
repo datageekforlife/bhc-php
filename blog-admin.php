@@ -84,12 +84,11 @@ if($valid) {
       $stmt->bind_param("ssi", $title, $content, $memberID);
       $stmt->execute();
       $stmt->close();
-  }
- 
-//$postID = mysqli_insert_id($conn)
-
+    }
+      $postID = mysqli_insert_id($conn)
       header("Location: blog-admin.php?postID=$postID");
       exit();
+      
   }
   if(filter_has_var(INPUT_POST, 'update')){
     $stmt = $conn->stmt_init();
@@ -105,19 +104,19 @@ if($valid) {
 }
 
 if ($edit) {
-  $pageContent .= <<<HERE
-		<section class="container>"
-		$msg
-	  <p>Please complete the form.</p>
-	  <form action="blog-admin.php" method="post">
+$pageContent .= <<<HERE
+	<section class="container>"
+	$msg
+	<p>Please complete the form.</p>
+	<form action="blog-admin.php" method="post">
 		  <div class="form-group">
 		    <label for="title">Blog Title</label>
 			  <input type="text" name="title" id="title" value="$title" class="form-control"> 
-      $invalid_title
+        $invalid_title
 		  </div>
 		  <div class="form-group">
-			<label for="content">Content</label>
-			<textarea name="content" id="content" class="form-control">$content</textarea>
+			  <label for="content">Content</label>
+			  <textarea name="content" id="content" class="form-control">$content</textarea>
        $invalid_content
 		  </div>
       $buttons
@@ -128,13 +127,7 @@ if ($edit) {
        </div>
       </form>
 	  </section>\n
-
-          
-	if($classList_row_cnt > 0){ // make sure we have at least 1 record
-		$selectPost = <<<HERE
-		<ul>\n
-HERE;
-		
+HERE;		
 } elseif ($postID) {
   $pageContent = <<<HERE
     <h2> Blog Post </h2>
