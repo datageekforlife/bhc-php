@@ -16,8 +16,14 @@ function debug_data() { // called in template to print arrays at top of any page
     echo '</pre>';
 }
 // debug_data(); // Comment this out to hide debug information
- 
-
+function auth_user() {
+	if(isset($_SESSION['memberID'])) {
+		return TRUE;
+	} else {
+		return FALSE;
+	}
+}
+$postTitle =NULL;
 // this function returns the contents of a blog post given its postID
 function blogPost($conn, $postID) {
 	$stmt = $conn->stmt_init();
@@ -59,11 +65,5 @@ function blogPosts($conn) {
 	}
 	return $postListData;
 }
-function auth_user() {
-	if(isset($_SESSION['memberID'])) {
-		return TRUE;
-	} else {
-		return FALSE;
-	}
-}
+
 ?>

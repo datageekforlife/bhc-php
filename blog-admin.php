@@ -10,10 +10,11 @@ if (!$conn) {
   $invalid_title = $invalid_content = NULL;
   $pageContent = $msg = NULL;
   
-if(isset($_SESSION['memberID'])){
+if( auth_user()) {
   $memberID = $_SESSION['memberID'];
 } else {
-  $memberID = 28;
+  header("Location: blog.php");
+  exit();
 }
 
 if(filter_has_var(INPUT_POST, 'edit')){
